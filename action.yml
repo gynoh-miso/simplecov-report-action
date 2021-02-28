@@ -8,10 +8,10 @@ inputs:
   github-token:
     description: "secrets.GITHUB_TOKEN"
     required: true
-  lcov-path:
-    description: "Relative path of coverage/lcov.info"
+  simplecov-json-path:
+    description: "Relative path of coverage/coverage.json"
     required: false
-    default: 'coverage/lcov.info'
+    default: 'coverage/coverage.json'
 runs:
   using: "node12"
   main: "dist/index.js"

@@ -10,7 +10,7 @@ async function main() {
     repo, owner, commit_sha: github.context.payload.after
   });
   const issue_number = result.data[0].number;
-  const file = fs.readFileSync(path.join('.', core.getInput('lcov-path')));
+  const file = fs.readFileSync(path.join('.', core.getInput('simplecov-json-path')));
   const {covered_percent, total_lines} = JSON.parse(file.toString()).metrics;
   const body = `<p>Covered ${covered_percent}% in total ${total_lines} lines.</p>`;
   await octokit.issues.createComment({repo, owner, body, issue_number});
