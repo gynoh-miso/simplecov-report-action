@@ -6,6 +6,7 @@ import path from 'path';
 async function main() {
   const {repo, owner} = github.context.repo;
   const octokit = github.getOctokit(core.getInput('github-token'));
+  console.log(github.context);
   const result = await octokit.repos.listPullRequestsAssociatedWithCommit({
     repo, owner, commit_sha: github.context.payload.after
   });
