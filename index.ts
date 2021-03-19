@@ -18,6 +18,6 @@ async function main() {
   }
   await octokit.issues.createComment({repo, owner, body, issue_number});
 }
-main().catch(e => core.setFailed(e.message));
+main().catch(e => core.getInput('ignore-error') != 'true' && core.setFailed(e.message));
 
 export default main;
